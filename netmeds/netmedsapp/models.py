@@ -4,6 +4,9 @@ from django.db import models
 class medicine_type(models.Model):
     medicine_genre = models.CharField(max_length=64)
 
+    def __str__(self):
+        return f"{self.medicine_genre}"
+
 class Medicines(models.Model):
     name = models.CharField(max_length=64)
     manufaturer = models.CharField(max_length=64)
@@ -17,3 +20,5 @@ class Medicines(models.Model):
     image = models.ImageField(upload_to='images/')
     genres = models.ManyToManyField(medicine_type, blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.name}"
